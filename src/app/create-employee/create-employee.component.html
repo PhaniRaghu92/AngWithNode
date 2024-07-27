@@ -1,0 +1,99 @@
+<div class="container mt-3">
+  <div class="col-md-8 offset-2 p-3 shadow-sm">
+    <div class="card">
+      <div class="card-header bg-success">
+        <h4 class="text-white">Employee Registration</h4>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="submitClick($event)" #newEmpForm="ngForm">
+          <div class="form-group">
+            <label for="uname">Name:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter username"
+              name="name"
+              required
+              [(ngModel)]="empModel.name"
+              #name="ngModel"
+            />
+
+            <div class="valid-feedback">Valid.</div>
+            <small class="text-danger" *ngIf="name.dirty && !name.valid">
+              Please fill out this name field.
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label for="pwd">email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+              required
+              [(ngModel)]="empModel.email"
+              #email="ngModel"
+            />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Salary:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="salary"
+              placeholder="Enter salary"
+              name="salary"
+              required
+              [(ngModel)]="empModel.salary"
+              #salary="ngModel"
+            />
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location:</label>
+            <select
+              class="form-control"
+              id="location"
+              [(ngModel)]="empModel.location"
+              name="location"
+              #location="ngModel"
+            >
+              <option value="">--SELECT--</option>
+              <option value="CHN">CHENNAI</option>
+              <option value="PNE">PUNE</option>
+              <option value="BLR">BANGALORE</option>
+              <option value="HYD">HYDERABAD</option>
+            </select>
+          </div>
+
+          <div class="form-group form-check">
+            <label class="form-check-label">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                name="active"
+                required
+                [(ngModel)]="empModel.active"
+                #active="ngModel"
+              />
+              Is Active Employee.
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">
+                Check this checkbox to continue.
+              </div>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
